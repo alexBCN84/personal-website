@@ -58,7 +58,7 @@ export const Teaser = styled.div`
   animation: ${fadein} 1s;
     -moz-animation: ${fadein} 1s; /* Firefox */
     -webkit-animation: ${fadein} 1s; /* Safari and Chrome */
-    -o-animation: ${fadein} 1s; /* Opera */
+    -o-animation: ${fadein} 1s; /*Opera */
 `;
 
 export const BannerContent = styled.div`
@@ -94,6 +94,7 @@ export const SwitchLanguageButton = styled.a`
   :after {
     content: '';
     position: absolute;
+    display: table-cell;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -105,6 +106,7 @@ export const SwitchLanguageButton = styled.a`
   :before {
     content: '';
     position: absolute;
+    display: table-cell;
     bottom: 0;
     left: 0;
     width: 0%;
@@ -120,6 +122,19 @@ export const SwitchLanguageButton = styled.a`
   :hover:before {
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    :after {
+      background-color: rgba(250, 250, 250, 0.0);
+    }
+    :hover {
+      color: #fff;
+    }
+    :hover:before {
+      width: 0;
+    }
+  }
+
 `;
 
 export const CopyWrapper = styled.div`
@@ -223,7 +238,7 @@ const bounce = keyframes`
   }
 `;
 
-export const ScrollDownBtn = styled.a`
+export const ScrollDownBtn = styled.div`
   margin: auto;
   display: block;
   width: 32px;

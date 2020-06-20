@@ -6,6 +6,7 @@ import * as St from './styles';
 import Img from 'gatsby-image';
 import { useDevice } from "react-use-device";
 import CVButton from './cvButton';
+import { scrollTo } from '../../../utils';
 
 export const HeroBanner = ({ languages, setLanguage }) => {
   const [inVewport, setInViewPort] = React.useState(null);
@@ -84,41 +85,38 @@ export const HeroBanner = ({ languages, setLanguage }) => {
 
   const mobileHeroBanner = (
     <>
-    <St.Wrapper ref={sectionRef}>
-      <St.Teaser style={{width: '100%', backgroundPosition: 'center'}}>
-        <St.LogoWrapper>
-          <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
-          <St.LogoTextWrapper>
-            <St.Name>Alejandro Ginés</St.Name>
-            <St.Title>Web Developer</St.Title>
-          </St.LogoTextWrapper>
-        </St.LogoWrapper>
-        <St.SwitchLanguageButton
-          ref={SwitchLanguageButtonRef}
-          onClick={() => {
-            const { inactive } = languages;
-            const { active } = languages;
-            setLanguage({ active: inactive, inactive: active });
-          }}
-        >
-          {languages.inactive}
-        </St.SwitchLanguageButton>
-        <St.TeaserChevronContent href="#about" style={{ width: '100px', left: '50%'}}>
-          <St.AboutUsText>{about}</St.AboutUsText>
-          <St.ScrollDownBtn />
-        </St.TeaserChevronContent>
-      </St.Teaser>
-    </St.Wrapper>
-    <St.Wrapper>
-        <St.BannerContent id="about" style={{ width: '100%', backgroundAttachment: 'initial'}}>
-        <St.CopyWrapper style={{width: '100%'}}>
-          <St.Kicker>{kicker}</St.Kicker>
-          <St.Headline>{headline}</St.Headline>
-          <St.Description>{description}</St.Description>
+      <St.Wrapper ref={sectionRef}>
+        <St.Teaser style={{width: '100%', backgroundPosition: 'center'}}>
+          <St.LogoWrapper style={{marginLeft: -20}}>
+            <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
+            <St.LogoTextWrapper style={{marginLeft: 10}}>
+              <St.Name style={{fontSize: 15}}>Alejandro Ginés</St.Name>
+              <St.Title style={{fontSize: 12}}>Web Developer</St.Title>
+            </St.LogoTextWrapper>
+          </St.LogoWrapper>
           <CVButton href={cvCTA.href} >{cvCTA.text}</CVButton>
-        </St.CopyWrapper>
+          <St.SwitchLanguageButton
+            style={{borderTopRightRadius: 0, borderBottomRightRadius: 0, backgroundColor: "rgba(250, 250, 250, 0.4)", right: 0, top: 40}}
+            ref={SwitchLanguageButtonRef}
+            onClick={() => {
+              const { inactive } = languages;
+              const { active } = languages;
+              setLanguage({ active: inactive, inactive: active });
+            }}
+          >
+            {languages.inactive}
+          </St.SwitchLanguageButton>
+          <St.TeaserChevronContent href="#about" onClick={ () => scrollTo(document.getElementById('about'), 275, 'top') } style={{ width: '100px', left: '50%', top: '85%'}}>
+            <St.AboutUsText>{about}</St.AboutUsText>
+            <St.ScrollDownBtn />
+          </St.TeaserChevronContent>
+        </St.Teaser>
+      </St.Wrapper>
+      <St.BannerContent id="about" style={{ width: '100%', height: '100vh', backgroundAttachment: 'initial'}}>
+        <St.Kicker style={{fontSize: 20, marginTop: '-10vh', width: '80%', marginLeft: '10%', textAlign: 'center'}} >{kicker}</St.Kicker>
+        <St.Headline style={{fontSize: 15, width: '80%', marginLeft: '10%', textAlign: 'center', lineHeight: 1.5}}>{headline}</St.Headline>
+        <St.Description style={{width: '80%', marginLeft: '10%', textAlign: 'center'}}>{description}</St.Description>
       </St.BannerContent>
-    </St.Wrapper>
     </>
   );
 
@@ -136,7 +134,7 @@ export const HeroBanner = ({ languages, setLanguage }) => {
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>
-        <St.TeaserChevronContent href="#about">
+        <St.TeaserChevronContent href="about">
           <St.AboutUsText>{about}</St.AboutUsText>
           <St.ScrollDownBtn />
         </St.TeaserChevronContent>

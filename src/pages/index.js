@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/common/Layout"
+import Layout from "./../components/common/layout"
 import SEO from "../components/common/seo"
 import { HeroBanner, About } from '../components/landing';
 
@@ -11,7 +11,7 @@ const IndexPage = () => {
     <Layout>
         <SEO title="Alejandro Gines" />
         <HeroBanner {...languageSettings} />
-        <About />
+        {/* <About /> */}
     </Layout>
     
   )
