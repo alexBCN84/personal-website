@@ -36,7 +36,7 @@ export const HeroBanner = ({ languages, setLanguage }) => {
     return () => {
       sectionObserver.disconnect();
     };
-  }, [inVewport, setInViewPort]);
+  });
 
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
   const data = useStaticQuery(
