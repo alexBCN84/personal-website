@@ -86,17 +86,16 @@ export const HeroBanner = ({ languages, setLanguage }) => {
   const mobileHeroBanner = (
     <>
       <St.Wrapper ref={sectionRef}>
-        <St.Teaser style={{width: '100%', backgroundPosition: 'center'}}>
-          <St.LogoWrapper style={{marginLeft: -20}}>
+        <St.TeaserMobile>
+          <St.LogoWrapperMobile>
             <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
-            <St.LogoTextWrapper style={{marginLeft: 10}}>
-              <St.Name style={{fontSize: 15}}>Alejandro Ginés</St.Name>
-              <St.Title style={{fontSize: 12}}>Web Developer</St.Title>
-            </St.LogoTextWrapper>
-          </St.LogoWrapper>
+            <St.LogoTextWrapperMobile>
+              <St.NameMobile>Alejandro Ginés</St.NameMobile>
+              <St.TitleMobile>Web Developer</St.TitleMobile>
+            </St.LogoTextWrapperMobile>
+          </St.LogoWrapperMobile>
           <CVButton href={cvCTA.href} >{cvCTA.text}</CVButton>
-          <St.SwitchLanguageButton
-            style={{borderTopRightRadius: 0, borderBottomRightRadius: 0, backgroundColor: "rgba(250, 250, 250, 0.4)", right: 0, top: 40}}
+          <St.SwitchLanguageButtonMobile
             ref={SwitchLanguageButtonRef}
             onClick={() => {
               const { inactive } = languages;
@@ -105,18 +104,20 @@ export const HeroBanner = ({ languages, setLanguage }) => {
             }}
           >
             {languages.inactive}
-          </St.SwitchLanguageButton>
-          <St.TeaserChevronContent href="#about" onClick={ () => scrollTo(document.getElementById('about'), 275, 'top') } style={{ width: '100px', left: '50%', top: '85%'}}>
+          </St.SwitchLanguageButtonMobile>
+          <St.TeaserChevronContentMobile href="#about" onClick={ 
+            () => scrollTo(document.getElementById('about'), 275, 'top') 
+          }>
             <St.AboutUsText>{about}</St.AboutUsText>
             <St.ScrollDownBtn />
-          </St.TeaserChevronContent>
-        </St.Teaser>
+          </St.TeaserChevronContentMobile>
+        </St.TeaserMobile>
       </St.Wrapper>
-      <St.BannerContent id="about" style={{ width: '100%', height: '100vh', backgroundAttachment: 'initial'}}>
-        <St.Kicker style={{fontSize: 20, marginTop: '-10vh', width: '80%', marginLeft: '10%', textAlign: 'center'}} >{kicker}</St.Kicker>
-        <St.Headline style={{fontSize: 15, width: '80%', marginLeft: '10%', textAlign: 'center', lineHeight: 1.5}}>{headline}</St.Headline>
-        <St.Description style={{width: '80%', marginLeft: '10%', textAlign: 'center'}}>{description}</St.Description>
-      </St.BannerContent>
+      <St.BannerContentMobile id="about">
+        <St.KickerMobile>{kicker}</St.KickerMobile>
+        <St.HeadlineMobile>{headline}</St.HeadlineMobile>
+        <St.DescriptionMobile>{description}</St.DescriptionMobile>
+      </St.BannerContentMobile>
     </>
   );
 

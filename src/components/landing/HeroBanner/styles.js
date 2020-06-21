@@ -1,4 +1,4 @@
-import styled, {keyframes, css} from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import teaser from '../../../images/banner_img.jpg';
 import bannerBackground from '../../../images/hero_banner_background.jpg';
 
@@ -19,6 +19,10 @@ export const LogoWrapper = styled.div`
   left: 40px;
 `;
 
+export const LogoWrapperMobile = styled(LogoWrapper)`
+  margin-left: -20px;
+`;
+
 export const LogoTextWrapper = styled.div`
   margin-left: 1vw;
   text-decoration: none;
@@ -30,15 +34,28 @@ export const LogoTextWrapper = styled.div`
   letter-spacing: 1px;
   font-family: 'Lato', sans-serif;
 `;
+
+export const LogoTextWrapperMobile = styled(LogoTextWrapper)`
+  margin-left: 10px;
+`;
+
 export const Name = styled.div`
   font-size: 18px;
   vertical-align: baseline;
   cursor: default;
 `;
 
+export const NameMobile = styled(Name)`
+  font-size: 15px;
+`;
+
 export const Title = styled.div`
   font-size: 14px;
   cursor: default;
+`;
+
+export const TitleMobile = styled(Title)`
+  font-size: 12px;
 `;
 
 const fadein = keyframes`
@@ -61,6 +78,11 @@ export const Teaser = styled.div`
     -o-animation: ${fadein} 1s; /*Opera */
 `;
 
+export const TeaserMobile = styled(Teaser)`
+  width: 100%; 
+  background-position: center;
+`;
+
 export const BannerContent = styled.div`
   width: 55%;
   height: auto;
@@ -74,6 +96,12 @@ export const BannerContent = styled.div`
     -moz-animation: ${fadein} 2s; /* Firefox */
     -webkit-animation: ${fadein} 2s; /* Safari and Chrome */
     -o-animation: ${fadein} 2s; /* Opera */
+`;
+
+export const BannerContentMobile = styled(BannerContent)`
+  width: 100%; 
+  height: 100vh; 
+  background-attachment: initial;
 `;
 
 export const SwitchLanguageButton = styled.a`
@@ -134,7 +162,14 @@ export const SwitchLanguageButton = styled.a`
       width: 0;
     }
   }
+`;
 
+export const SwitchLanguageButtonMobile = styled(SwitchLanguageButton)`
+  border-top-right-radius: 0px; 
+  border-bottom-right-radius: 0px; 
+  background-color: rgba(250, 250, 250, 0.4); 
+  right: 0px; 
+  top: 40px;
 `;
 
 export const CopyWrapper = styled.div`
@@ -179,6 +214,14 @@ export const Kicker = styled.h2`
   margin: 0;
 `;
 
+export const KickerMobile = styled(Kicker)`
+  font-size: 20px; 
+  margin-top: -10vh; 
+  width: 80%; 
+  margin-left: 10%; 
+  text-align: center;
+`;
+
 export const Headline = styled.h1`
   color: ${fontColorBanner};
   font-family: 'Fira Code', monospace;
@@ -187,6 +230,14 @@ export const Headline = styled.h1`
   margin-top: 2vh;
   animation: 1s ${slideInLeft} 0s forwards;
   transform:translateX(300%);
+`;
+
+export const HeadlineMobile = styled(Headline)`
+  font-size: 15px; 
+  width: 80%; 
+  margin-left: 10%; 
+  text-align: center; 
+  line-height: 1.5;
 `;
 
 export const Description = styled.h3`
@@ -203,11 +254,23 @@ export const Description = styled.h3`
   }
 `;
 
+export const DescriptionMobile = styled(Description)`
+  width: 80%; 
+  margin-left: 10%; 
+  text-align: center;
+`;
+
 export const TeaserChevronContent = styled.div`
   position: absolute;
   left: 22%;
   top: 90vh;
   transform: translate(-50%, -50%);
+`;
+
+export const TeaserChevronContentMobile = styled(TeaserChevronContent)`
+  width: 100px; 
+  left: 50%; 
+  top: 85%;
 `;
 
 export const AboutUsText = styled.p`
