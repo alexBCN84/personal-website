@@ -5,13 +5,13 @@
     transform: translate(-50%, -50%);
   }
 
-  @media (min-width: 769px) and (max-width: 1200px) {
+  @media (min-width: 992px) and (max-width: 1200px) {
     .wrapper{
       left: 31%
     } 
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     .wrapper{
       left: 50%;
       top: 180vh;

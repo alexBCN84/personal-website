@@ -151,7 +151,7 @@ export const SwitchLanguageButton = styled.a`
     width: 100%;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     :after {
       background-color: rgba(250, 250, 250, 0.0);
     }
@@ -222,6 +222,11 @@ export const KickerMobile = styled(Kicker)`
   text-align: center;
 `;
 
+export const KickerTablet = styled(Kicker)`
+  width: 80%; 
+  margin-left: 10%;
+`;
+
 export const Headline = styled.h1`
   color: ${fontColorBanner};
   font-family: 'Fira Code', monospace;
@@ -238,6 +243,11 @@ export const HeadlineMobile = styled(Headline)`
   margin-left: 10%; 
   text-align: center; 
   line-height: 1.5;
+`;
+
+export const HeadlineTablet = styled(Headline)`
+  width: 80%; 
+  margin-left: 10%;
 `;
 
 export const Description = styled.h3`
@@ -260,6 +270,11 @@ export const DescriptionMobile = styled(Description)`
   text-align: center;
 `;
 
+export const DescriptionTablet = styled(Description)`
+  width: 80%; 
+  margin-left: 10%;
+`;
+
 export const TeaserChevronContent = styled.div`
   position: absolute;
   left: 22%;
@@ -277,6 +292,10 @@ export const AboutUsText = styled.p`
   color: #fff;
   text-align: center;
   font-family: 'Share Tech Mono', monospace;
+`;
+
+export const AboutUsTextTablet = styled(AboutUsText)`
+  font-size: 20px;
 `;
 
 const bounce = keyframes`

@@ -121,9 +121,43 @@ export const HeroBanner = ({ languages, setLanguage }) => {
     </>
   );
 
-  const tabletHeroBanner = <p>Tablet Hero Banner</p>;
-
-  const laptopHeroBanner = <p>Laptop Hero Banner</p>;
+  const tabletHeroBanner = (
+  <>
+    <St.Wrapper ref={sectionRef}>
+      <St.TeaserMobile>
+        <St.LogoWrapperMobile>
+          <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
+          <St.LogoTextWrapper>
+            <St.Name>Alejandro Ginés</St.Name>
+            <St.Title>Web Developer</St.Title>
+          </St.LogoTextWrapper>
+        </St.LogoWrapperMobile>
+        <CVButton href={cvCTA.href} >{cvCTA.text}</CVButton>
+        <St.SwitchLanguageButton
+          ref={SwitchLanguageButtonRef}
+          onClick={() => {
+            const { inactive } = languages;
+            const { active } = languages;
+            setLanguage({ active: inactive, inactive: active });
+          }}
+        >
+          {languages.inactive}
+        </St.SwitchLanguageButton>
+        <St.TeaserChevronContentMobile href="#about" onClick={ 
+          () => scrollTo(document.getElementById('about'), 275, 'top') 
+        }>
+          <St.AboutUsTextTablet>{about}</St.AboutUsTextTablet>
+          <St.ScrollDownBtn />
+        </St.TeaserChevronContentMobile>
+      </St.TeaserMobile>
+    </St.Wrapper>
+    <St.BannerContentMobile id="about">
+      <St.KickerTablet>{kicker}</St.KickerTablet>
+      <St.HeadlineTablet>{headline}</St.HeadlineTablet>
+      <St.DescriptionTablet>{description}</St.DescriptionTablet>
+    </St.BannerContentMobile>
+  </>
+  );
 
   const desktopHeroBanner = (
     <St.Wrapper ref={sectionRef}>
@@ -165,8 +199,7 @@ export const HeroBanner = ({ languages, setLanguage }) => {
     <>
       {isMOBILE && mobileHeroBanner}
       {isTABLET && tabletHeroBanner}
-      {isLAPTOP && laptopHeroBanner}
-      {isDESKTOP && desktopHeroBanner}
+      {(isLAPTOP || isDESKTOP) && desktopHeroBanner}
     </>
   )
 };
