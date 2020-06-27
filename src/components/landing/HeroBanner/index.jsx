@@ -8,7 +8,7 @@ import { useDevice } from "react-use-device";
 import CVButton from './cvButton';
 import { scrollTo } from '../../../utils';
 
-export const HeroBanner = ({ languages, setLanguage }) => {
+export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   const [inVewport, setInViewPort] = React.useState(null);
   const sectionRef = React.useRef(null);
   const SwitchLanguageButtonRef = React.useRef(null);
@@ -39,46 +39,6 @@ export const HeroBanner = ({ languages, setLanguage }) => {
   });
 
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
-  const data = useStaticQuery(
-    graphql`
-      query {
-        file(relativePath: { eq: "logo.png" }) {
-          childImageSharp {
-            fixed(width: 40, height: 40) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        allDataJson {
-          edges {
-            node {
-              ES {
-                kicker
-                headline
-                description
-                aboutChevronText
-                cvCTA {
-                  text
-                  href
-                }
-              }
-              EN {
-                kicker
-                headline
-                description
-                aboutChevronText
-                cvCTA {
-                  text
-                  href
-                }
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-
   const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
     languages.active
   ];
@@ -204,10 +164,55 @@ export const HeroBanner = ({ languages, setLanguage }) => {
   )
 };
 
-HeroBanner.propTypes = {
+PureHeroBanner.propTypes = {
   languages: PropTypes.shape({
     active: PropTypes.oneOf(['ES', 'EN']),
     inactive: PropTypes.oneOf(['ES', 'EN']),
   }).isRequired,
   setLanguage: PropTypes.func.isRequired,
 };
+
+export const HeroBanner = props => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        file(relativePath: { eq: "logo.png" }) {
+          childImageSharp {
+            fixed(width: 40, height: 40) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        allDataJson {
+          edges {
+            node {
+              ES {
+                kicker
+                headline
+                description
+                aboutChevronText
+                cvCTA {
+                  text
+                  href
+                }
+              }
+              EN {
+                kicker
+                headline
+                description
+                aboutChevronText
+                cvCTA {
+                  text
+                  href
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  return <PureHeroBanner {...props} data={data} />
+
+}

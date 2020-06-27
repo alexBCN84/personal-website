@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { PureHeroBanner } from "./index";
+import { PureHeroBanner as HeroBanner} from "./index";
 
 
  describe('HeroBanner', function(){
@@ -52,7 +52,7 @@ import { PureHeroBanner } from "./index";
     }
   
      it('renders correctly', function(){
-        const tree = renderer.create(<PureHeroBanner  {...mockProps} data={data} />).toJSON()
+        const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
         expect(tree).toMatchSnapshot()
      })
  })
