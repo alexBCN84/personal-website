@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { PureHeroBanner as HeroBanner} from "./index";
-
+import { render } from "@testing-library/react";
 
  describe('HeroBanner', function(){
     const mockProps = {
@@ -55,4 +55,13 @@ import { PureHeroBanner as HeroBanner} from "./index";
         const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
         expect(tree).toMatchSnapshot()
      })
+
+    //  // You have to write data-testid
+    // const Title = () => <h1 data-testid="hero-title">Gatsby is awesome!</h1>
+    // it("Displays the correct title", () => {
+    //   const { getByTestId } = render(<Title />)
+    //   // Assertion
+    //   expect(getByTestId("hero-title")).toHaveTextContent("Gatsby is awesome!")
+    //   // --> Test will pass
+    // })
  })
