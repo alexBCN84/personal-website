@@ -6,7 +6,7 @@ import * as St from './styles';
 import Img from 'gatsby-image';
 import { useDevice } from "react-use-device";
 import CVButton from './cvButton';
-import { scrollTo } from '../../../utils';
+import { scrollTo } from '@utils/index';
 
 export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   const [inVewport, setInViewPort] = React.useState(null);
