@@ -9,11 +9,13 @@ export function setupIntersectionObserverMock({
     observe = () => null,
     unobserve = () => null,
     disconnect = () => null,
+
   } = {}) {
     class IntersectionObserver {
       observe = observe;
       unobserve = unobserve;
       disconnect = disconnect;
+
     }
     Object.defineProperty(
       window,
