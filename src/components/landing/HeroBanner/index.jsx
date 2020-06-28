@@ -14,11 +14,13 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   const SwitchLanguageButtonRef = React.useRef(null);
 
   React.useEffect(() => {
-    if (sectionRef.current) setInViewPort(true);
+
     const fixedPosition = 'fixed';
     const relativePosition = 'relative';
-
-    SwitchLanguageButtonRef.current.style.position = fixedPosition;
+    if (sectionRef.current) {
+      setInViewPort(true);
+      SwitchLanguageButtonRef.current.style.position = fixedPosition;
+    }
 
     function toggleLanguageButtonPosition(entries) {
       // check if section is on view and is intersecting
@@ -34,7 +36,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
     sectionObserver.observe(sectionRef.current);
 
     return () => {
-      sectionObserver.disconnect();
+      sectionObserver.unobserve();
     };
   });
 
@@ -125,7 +127,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
         <St.LogoWrapper>
           <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
           <St.LogoTextWrapper>
-            <St.Name>Alejandro Ginés</St.Name>
+            <St.Name data-testid="name">Alejandro Ginés</St.Name>
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>

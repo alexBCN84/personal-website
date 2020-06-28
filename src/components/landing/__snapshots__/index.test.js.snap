@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeroBanner renders correctly 1`] = `
+exports[`HeroBanner matches snapshot 1`] = `
 <section
   className="sc-AxjAm cbBRmT"
 >
@@ -80,6 +80,7 @@ exports[`HeroBanner renders correctly 1`] = `
       >
         <div
           className="sc-AxgMl hzwiGK"
+          data-testid="name"
         >
           Alejandro Ginés
         </div>

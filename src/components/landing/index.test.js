@@ -1,9 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { PureHeroBanner as HeroBanner} from "./index";
-
+import { render, cleanup } from "@testing-library/react";
+import ReactDOM from "react-dom";
+import { setupIntersectionObserverMock } from "../../../__mocks__/intersection-observer"; 
 
  describe('HeroBanner', function(){
+
+    beforeEach(setupIntersectionObserverMock);
+    afterEach(cleanup);
+    
     const mockProps = {
         languages: { active: 'EN', inactive: 'ES' },
         setLanguage: jest.fn()
@@ -50,9 +56,21 @@ import { PureHeroBanner as HeroBanner} from "./index";
             ]
           }
     }
-  
-     it('renders correctly', function(){
-        const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
-        expect(tree).toMatchSnapshot()
-     })
+
+    it('renders without crashing', () => {
+      const div = document.createElement("div");
+      ReactDOM.render(<HeroBanner  {...mockProps} data={data} ></HeroBanner>, div)
+    })
+
+    // you can have as many snapshots as you want, it all depends on what props you pass into your component
+    it('matches snapshot', function(){
+      const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
+      expect(tree).toMatchSnapshot()
+   })
+
+   it('renders HeroBanner correctly', () => {
+     const {getByTestId} = render(<HeroBanner {...mockProps} data={data} />);
+     expect(getByTestId('name')).toHaveTextContent('Alejandro Ginés');
+   })
+
  })
