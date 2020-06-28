@@ -13,30 +13,32 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   const sectionRef = React.useRef(null);
   const SwitchLanguageButtonRef = React.useRef(null);
 
-  // React.useEffect(() => {
-  //   if (sectionRef.current) setInViewPort(true);
-  //   const fixedPosition = 'fixed';
-  //   const relativePosition = 'relative';
+  React.useEffect(() => {
 
-  //   SwitchLanguageButtonRef.current.style.position = fixedPosition;
+    const fixedPosition = 'fixed';
+    const relativePosition = 'relative';
+    if (sectionRef.current) {
+      setInViewPort(true);
+      SwitchLanguageButtonRef.current.style.position = fixedPosition;
+    }
 
-  //   function toggleLanguageButtonPosition(entries) {
-  //     // check if section is on view and is intersecting
-  //     if (!entries[0].isIntersecting && !entries[0].isVisible) {
-  //       SwitchLanguageButtonRef.current.style.position = relativePosition;
-  //     } else {
-  //       SwitchLanguageButtonRef.current.style.position = fixedPosition;
-  //     }
-  //   }
+    function toggleLanguageButtonPosition(entries) {
+      // check if section is on view and is intersecting
+      if (!entries[0].isIntersecting && !entries[0].isVisible) {
+        SwitchLanguageButtonRef.current.style.position = relativePosition;
+      } else {
+        SwitchLanguageButtonRef.current.style.position = fixedPosition;
+      }
+    }
 
-  //   // user rootMargin from options object to set the new point where you want intersection to happen
-  //   const sectionObserver = new IntersectionObserver(toggleLanguageButtonPosition, { rootMargin: '-100px' });
-  //   sectionObserver.observe(sectionRef.current);
+    // user rootMargin from options object to set the new point where you want intersection to happen
+    const sectionObserver = new IntersectionObserver(toggleLanguageButtonPosition, { rootMargin: '-100px' });
+    sectionObserver.observe(sectionRef.current);
 
-  //   return () => {
-  //     sectionObserver.disconnect();
-  //   };
-  // });
+    return () => {
+      sectionObserver.unobserve();
+    };
+  });
 
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
   const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
