@@ -36,7 +36,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
     sectionObserver.observe(sectionRef.current);
 
     return () => {
-      sectionObserver.unobserve();
+      sectionObserver.disconnect();
     };
   });
 
