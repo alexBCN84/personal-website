@@ -1,9 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { PureHeroBanner as HeroBanner} from "./index";
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
+import ReactDOM from "react-dom";
 
  describe('HeroBanner', function(){
+    afterEach(cleanup);
     const mockProps = {
         languages: { active: 'EN', inactive: 'ES' },
         setLanguage: jest.fn()
@@ -50,18 +52,20 @@ import { render } from "@testing-library/react";
             ]
           }
     }
-  
-     it('renders correctly', function(){
-        const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
-        expect(tree).toMatchSnapshot()
-     })
 
-    //  // You have to write data-testid
-    // const Title = () => <h1 data-testid="hero-title">Gatsby is awesome!</h1>
-    // it("Displays the correct title", () => {
-    //   const { getByTestId } = render(<Title />)
-    //   // Assertion
-    //   expect(getByTestId("hero-title")).toHaveTextContent("Gatsby is awesome!")
-    //   // --> Test will pass
-    // })
+    it('renders without crashing', () => {
+      const div = document.createElement("div");
+      ReactDOM.render(<HeroBanner  {...mockProps} data={data} ></HeroBanner>, div)
+    })
+
+    it('matches snapshot', function(){
+      const tree = renderer.create(<HeroBanner  {...mockProps} data={data} />).toJSON()
+      expect(tree).toMatchSnapshot()
+   })
+
+   it('renders HeroBanner correctly', () => {
+     const {getByTestId} = render(<HeroBanner {...mockProps} data={data} />);
+     expect(getByTestId('name')).toHaveTextContent('Alejandro Ginés');
+   })
+
  })

@@ -13,30 +13,30 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   const sectionRef = React.useRef(null);
   const SwitchLanguageButtonRef = React.useRef(null);
 
-  React.useEffect(() => {
-    if (sectionRef.current) setInViewPort(true);
-    const fixedPosition = 'fixed';
-    const relativePosition = 'relative';
+  // React.useEffect(() => {
+  //   if (sectionRef.current) setInViewPort(true);
+  //   const fixedPosition = 'fixed';
+  //   const relativePosition = 'relative';
 
-    SwitchLanguageButtonRef.current.style.position = fixedPosition;
+  //   SwitchLanguageButtonRef.current.style.position = fixedPosition;
 
-    function toggleLanguageButtonPosition(entries) {
-      // check if section is on view and is intersecting
-      if (!entries[0].isIntersecting && !entries[0].isVisible) {
-        SwitchLanguageButtonRef.current.style.position = relativePosition;
-      } else {
-        SwitchLanguageButtonRef.current.style.position = fixedPosition;
-      }
-    }
+  //   function toggleLanguageButtonPosition(entries) {
+  //     // check if section is on view and is intersecting
+  //     if (!entries[0].isIntersecting && !entries[0].isVisible) {
+  //       SwitchLanguageButtonRef.current.style.position = relativePosition;
+  //     } else {
+  //       SwitchLanguageButtonRef.current.style.position = fixedPosition;
+  //     }
+  //   }
 
-    // user rootMargin from options object to set the new point where you want intersection to happen
-    const sectionObserver = new IntersectionObserver(toggleLanguageButtonPosition, { rootMargin: '-100px' });
-    sectionObserver.observe(sectionRef.current);
+  //   // user rootMargin from options object to set the new point where you want intersection to happen
+  //   const sectionObserver = new IntersectionObserver(toggleLanguageButtonPosition, { rootMargin: '-100px' });
+  //   sectionObserver.observe(sectionRef.current);
 
-    return () => {
-      sectionObserver.disconnect();
-    };
-  });
+  //   return () => {
+  //     sectionObserver.disconnect();
+  //   };
+  // });
 
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
   const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
@@ -125,7 +125,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
         <St.LogoWrapper>
           <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
           <St.LogoTextWrapper>
-            <St.Name>Alejandro Ginés</St.Name>
+            <St.Name data-testid="name">Alejandro Ginés</St.Name>
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>

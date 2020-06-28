@@ -80,6 +80,7 @@ exports[`HeroBanner renders correctly 1`] = `
       >
         <div
           className="sc-AxgMl hzwiGK"
+          data-testid="name"
         >
           Alejandro Ginés
         </div>
