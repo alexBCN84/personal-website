@@ -44,6 +44,7 @@ module.exports = {
       options: {
         root: `./src`, // <- will be used as a root dir
         aliases: {
+          '@data-management': './data-management',
           '@components': './components', // <- will become ./src/components
           '@utils': './utils',
           // helpers: './helpers', // <- will become ./src/helpers
