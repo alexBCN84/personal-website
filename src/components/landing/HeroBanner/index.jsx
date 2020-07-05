@@ -67,7 +67,7 @@ export const PureHeroBanner = () => {
           >
             {languages.inactive}
           </St.SwitchLanguageButtonMobile>
-          <St.TeaserChevronContentMobile href="#about" onClick={ 
+          <St.TeaserChevronContentMobile onClick={ 
             () => scrollTo(document.getElementById('about'), 275, 'top') 
           }>
             <St.AboutUsText>{about}</St.AboutUsText>
@@ -102,7 +102,7 @@ export const PureHeroBanner = () => {
         >
           {languages.inactive}
         </St.SwitchLanguageButton>
-        <St.TeaserChevronContentMobile href="#about" onClick={ 
+        <St.TeaserChevronContentMobile onClick={ 
           () => scrollTo(document.getElementById('about'), 275, 'top') 
         }>
           <St.AboutUsTextTablet>{about}</St.AboutUsTextTablet>
@@ -128,7 +128,9 @@ export const PureHeroBanner = () => {
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>
-        <St.TeaserChevronContent href="about">
+        <St.TeaserChevronContent onClick={ 
+          () => scrollTo(document.getElementById('about'), 275, 'top') 
+        }>
           <St.AboutUsText>{about}</St.AboutUsText>
           <St.ScrollDownBtn />
         </St.TeaserChevronContent>
