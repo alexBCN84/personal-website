@@ -40,13 +40,19 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
     };
   });
 
+  function changeLanguage() {
+    const { inactive } = languages;
+    const { active } = languages;
+    setLanguage({ active: inactive, inactive: active });
+  }
+
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
   const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
     languages.active
   ];
 
   const mobileHeroBanner = (
-    <>
+    <div data-testid="mobile">
       <St.Wrapper ref={sectionRef}>
         <St.TeaserMobile>
           <St.LogoWrapperMobile>
@@ -58,6 +64,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
           </St.LogoWrapperMobile>
           <CVButton href={cvCTA.href} >{cvCTA.text}</CVButton>
           <St.SwitchLanguageButtonMobile
+            id="language-switch"
             ref={SwitchLanguageButtonRef}
             onClick={() => {
               const { inactive } = languages;
@@ -80,11 +87,11 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
         <St.HeadlineMobile>{headline}</St.HeadlineMobile>
         <St.DescriptionMobile>{description}</St.DescriptionMobile>
       </St.BannerContentMobile>
-    </>
+    </div>
   );
 
   const tabletHeroBanner = (
-  <>
+  <div data-testid="tablet">
     <St.Wrapper ref={sectionRef}>
       <St.TeaserMobile>
         <St.LogoWrapperMobile>
@@ -96,6 +103,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
         </St.LogoWrapperMobile>
         <CVButton href={cvCTA.href} >{cvCTA.text}</CVButton>
         <St.SwitchLanguageButton
+          id="language-switch"
           ref={SwitchLanguageButtonRef}
           onClick={() => {
             const { inactive } = languages;
@@ -118,16 +126,16 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
       <St.HeadlineTablet>{headline}</St.HeadlineTablet>
       <St.DescriptionTablet>{description}</St.DescriptionTablet>
     </St.BannerContentMobile>
-  </>
+  </div>
   );
 
   const desktopHeroBanner = (
-    <St.Wrapper ref={sectionRef}>
+    <St.Wrapper ref={sectionRef} data-testid="desktop">
       <St.Teaser>
         <St.LogoWrapper>
           <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
           <St.LogoTextWrapper>
-            <St.Name data-testid="name">Alejandro Ginés</St.Name>
+            <St.Name>Alejandro Ginés</St.Name>
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>
@@ -138,12 +146,9 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
       </St.Teaser>
       <St.BannerContent>
         <St.SwitchLanguageButton
+          id="language-switch"
           ref={SwitchLanguageButtonRef}
-          onClick={() => {
-            const { inactive } = languages;
-            const { active } = languages;
-            setLanguage({ active: inactive, inactive: active });
-          }}
+          onClick={changeLanguage}
         >
           {languages.inactive}
         </St.SwitchLanguageButton>

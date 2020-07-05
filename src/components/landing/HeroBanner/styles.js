@@ -275,7 +275,7 @@ export const DescriptionTablet = styled(Description)`
   margin-left: 10%;
 `;
 
-export const TeaserChevronContent = styled.div`
+export const TeaserChevronContent = styled.a`
   position: absolute;
   left: 22%;
   top: 90vh;
