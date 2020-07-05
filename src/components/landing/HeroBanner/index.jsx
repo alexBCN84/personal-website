@@ -1,17 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { graphql, useStaticQuery } from 'gatsby';
+import React, { useContext } from 'react';
+import { store } from '@data-management/store';
+import { SET_ACTIVE_LANGUAGE } from '@data-management/actions'
 import * as St from './styles';
 import Img from 'gatsby-image';
 import { useDevice } from "react-use-device";
 import CVButton from './cvButton';
 import { scrollTo } from '@utils/index';
 
-export const PureHeroBanner = ({ languages, setLanguage, data }) => {
+export const PureHeroBanner = () => {
+  const globalState = useContext(store);
+  const { dispatch, heroBannerData, state } = globalState;
   const [inVewport, setInViewPort] = React.useState(null);
   const sectionRef = React.useRef(null);
   const SwitchLanguageButtonRef = React.useRef(null);
+  const { logo, headline, kicker, description, cvCTA, about } = heroBannerData;
+  const { languages } = state;
 
   React.useEffect(() => {
 
@@ -41,22 +44,16 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   });
 
   function changeLanguage() {
-    const { inactive } = languages;
-    const { active } = languages;
-    setLanguage({ active: inactive, inactive: active });
+    dispatch({type: SET_ACTIVE_LANGUAGE, languages: {active: languages.inactive, inactive: languages.active}});
   }
 
   const { isMOBILE, isTABLET, isLAPTOP, isDESKTOP } = useDevice();
-  const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
-    languages.active
-  ];
-
   const mobileHeroBanner = (
     <div data-testid="mobile">
       <St.Wrapper ref={sectionRef}>
         <St.TeaserMobile>
           <St.LogoWrapperMobile>
-            <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
+            <Img fixed={logo} className="logo" alt="logo" />
             <St.LogoTextWrapperMobile>
               <St.NameMobile>Alejandro Ginés</St.NameMobile>
               <St.TitleMobile>Web Developer</St.TitleMobile>
@@ -66,11 +63,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
           <St.SwitchLanguageButtonMobile
             id="language-switch"
             ref={SwitchLanguageButtonRef}
-            onClick={() => {
-              const { inactive } = languages;
-              const { active } = languages;
-              setLanguage({ active: inactive, inactive: active });
-            }}
+            onClick={changeLanguage}
           >
             {languages.inactive}
           </St.SwitchLanguageButtonMobile>
@@ -95,7 +88,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
     <St.Wrapper ref={sectionRef}>
       <St.TeaserMobile>
         <St.LogoWrapperMobile>
-          <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
+          <Img fixed={logo} className="logo" alt="logo" />
           <St.LogoTextWrapper>
             <St.Name>Alejandro Ginés</St.Name>
             <St.Title>Web Developer</St.Title>
@@ -105,11 +98,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
         <St.SwitchLanguageButton
           id="language-switch"
           ref={SwitchLanguageButtonRef}
-          onClick={() => {
-            const { inactive } = languages;
-            const { active } = languages;
-            setLanguage({ active: inactive, inactive: active });
-          }}
+          onClick={changeLanguage}
         >
           {languages.inactive}
         </St.SwitchLanguageButton>
@@ -133,7 +122,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
     <St.Wrapper ref={sectionRef} data-testid="desktop">
       <St.Teaser>
         <St.LogoWrapper>
-          <Img fixed={data.file.childImageSharp.fixed} className="logo" alt="logo" />
+          <Img fixed={logo} className="logo" alt="logo" />
           <St.LogoTextWrapper>
             <St.Name>Alejandro Ginés</St.Name>
             <St.Title>Web Developer</St.Title>
@@ -171,55 +160,7 @@ export const PureHeroBanner = ({ languages, setLanguage, data }) => {
   )
 };
 
-PureHeroBanner.propTypes = {
-  languages: PropTypes.shape({
-    active: PropTypes.oneOf(['ES', 'EN']),
-    inactive: PropTypes.oneOf(['ES', 'EN']),
-  }).isRequired,
-  setLanguage: PropTypes.func.isRequired,
-};
-
 export const HeroBanner = props => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        file(relativePath: { eq: "logo.png" }) {
-          childImageSharp {
-            fixed(width: 40, height: 40) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        allDataJson {
-          edges {
-            node {
-              ES {
-                kicker
-                headline
-                description
-                aboutChevronText
-                cvCTA {
-                  text
-                  href
-                }
-              }
-              EN {
-                kicker
-                headline
-                description
-                aboutChevronText
-                cvCTA {
-                  text
-                  href
-                }
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-
-  return <PureHeroBanner {...props} data={data} />
+  return <PureHeroBanner {...props} />
 
 }
