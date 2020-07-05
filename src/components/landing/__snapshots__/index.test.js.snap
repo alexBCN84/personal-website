@@ -3,6 +3,7 @@
 exports[`HeroBanner matches snapshot 1`] = `
 <section
   className="sc-AxjAm cbBRmT"
+  data-testid="desktop"
 >
   <div
     className="sc-fzozJi hhSIgG"
@@ -80,7 +81,6 @@ exports[`HeroBanner matches snapshot 1`] = `
       >
         <div
           className="sc-AxgMl hzwiGK"
-          data-testid="name"
         >
           Alejandro Ginés
         </div>
@@ -91,7 +91,7 @@ exports[`HeroBanner matches snapshot 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <a
       className="sc-fznWqX jqXnrH"
       href="about"
     >
@@ -103,13 +103,14 @@ exports[`HeroBanner matches snapshot 1`] = `
       <div
         className="sc-fzoyTs buwGoh"
       />
-    </div>
+    </a>
   </div>
   <div
     className="sc-fzpans fWuNxB"
   >
     <a
       className="sc-fznyAO eQYrUP"
+      id="language-switch"
       onClick={[Function]}
     >
       ES
