@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
-import { store } from '@data-management/store';
-import { SET_ACTIVE_LANGUAGE } from '@data-management/actions'
+import React from 'react';
+import { useStore } from '../../../data-management/storeHelpers';
+import { SET_ACTIVE_LANGUAGE } from '../../../data-management/actions'
 import * as St from './styles';
 import Img from 'gatsby-image';
 import { useDevice } from "react-use-device";
 import CVButton from './cvButton';
 import { scrollTo } from '@utils/index';
+import { toggleLanguage } from './toggleLanguage';
 
-export const PureHeroBanner = () => {
-  const globalState = useContext(store);
+export const HeroBanner = () => {
+  const globalState = useStore();
   const { dispatch, heroBannerData, state } = globalState;
   const [inVewport, setInViewPort] = React.useState(null);
   const sectionRef = React.useRef(null);
@@ -16,26 +17,19 @@ export const PureHeroBanner = () => {
   const { logo, headline, kicker, description, cvCTA, about } = heroBannerData;
   const { languages } = state;
 
-  React.useEffect(() => {
+  const fixedPosition = 'fixed';
+  const relativePosition = 'relative';
 
-    const fixedPosition = 'fixed';
-    const relativePosition = 'relative';
+  React.useEffect(() => {
     if (sectionRef.current) {
       setInViewPort(true);
       SwitchLanguageButtonRef.current.style.position = fixedPosition;
     }
-
-    function toggleLanguageButtonPosition(entries) {
-      // check if section is on view and is intersecting
-      if (!entries[0].isIntersecting && !entries[0].isVisible) {
-        SwitchLanguageButtonRef.current.style.position = relativePosition;
-      } else {
-        SwitchLanguageButtonRef.current.style.position = fixedPosition;
-      }
-    }
-
     // user rootMargin from options object to set the new point where you want intersection to happen
-    const sectionObserver = new IntersectionObserver(toggleLanguageButtonPosition, { rootMargin: '-100px' });
+    const sectionObserver = new IntersectionObserver(toggleLanguage(
+      {fixedPosition, relativePosition}, 
+      SwitchLanguageButtonRef.current
+    ), { rootMargin: '-100px' });
     sectionObserver.observe(sectionRef.current);
 
     return () => {
@@ -67,15 +61,15 @@ export const PureHeroBanner = () => {
           >
             {languages.inactive}
           </St.SwitchLanguageButtonMobile>
-          <St.TeaserChevronContentMobile onClick={ 
-            () => scrollTo(document.getElementById('about'), 275, 'top') 
+          <St.TeaserChevronContentMobile id="aboutButtonMobile" onClick={ 
+            () => scrollTo(document.getElementById('intro'), 275, 'top')
           }>
             <St.AboutUsText>{about}</St.AboutUsText>
             <St.ScrollDownBtn />
           </St.TeaserChevronContentMobile>
         </St.TeaserMobile>
       </St.Wrapper>
-      <St.BannerContentMobile id="about">
+      <St.BannerContentMobile id="intro">
         <St.KickerMobile>{kicker}</St.KickerMobile>
         <St.HeadlineMobile>{headline}</St.HeadlineMobile>
         <St.DescriptionMobile>{description}</St.DescriptionMobile>
@@ -102,15 +96,15 @@ export const PureHeroBanner = () => {
         >
           {languages.inactive}
         </St.SwitchLanguageButton>
-        <St.TeaserChevronContentMobile onClick={ 
-          () => scrollTo(document.getElementById('about'), 275, 'top') 
+        <St.TeaserChevronContentMobile id="aboutButtonTablet" onClick={ 
+          () => scrollTo(document.getElementById('intro'), 275, 'top') 
         }>
           <St.AboutUsTextTablet>{about}</St.AboutUsTextTablet>
           <St.ScrollDownBtn />
         </St.TeaserChevronContentMobile>
       </St.TeaserMobile>
     </St.Wrapper>
-    <St.BannerContentMobile id="about">
+    <St.BannerContentMobile id="intro">
       <St.KickerTablet>{kicker}</St.KickerTablet>
       <St.HeadlineTablet>{headline}</St.HeadlineTablet>
       <St.DescriptionTablet>{description}</St.DescriptionTablet>
@@ -128,7 +122,7 @@ export const PureHeroBanner = () => {
             <St.Title>Web Developer</St.Title>
           </St.LogoTextWrapper>
         </St.LogoWrapper>
-        <St.TeaserChevronContent onClick={ 
+        <St.TeaserChevronContent id="aboutButtonDesktop" onClick={ 
           () => scrollTo(document.getElementById('about'), 275, 'top') 
         }>
           <St.AboutUsText>{about}</St.AboutUsText>
@@ -161,8 +155,3 @@ export const PureHeroBanner = () => {
     </>
   )
 };
-
-export const HeroBanner = props => {
-  return <PureHeroBanner {...props} />
-
-}

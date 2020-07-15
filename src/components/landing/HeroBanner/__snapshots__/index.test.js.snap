@@ -1,169 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeroBanner matches snapshot 1`] = `
+exports[`HeroBanner renders without crashing 1`] = `
 <section
-  className="sc-AxjAm cbBRmT"
+  class="sc-AxjAm cbBRmT"
   data-testid="desktop"
 >
   <div
-    className="sc-fzozJi hhSIgG"
+    class="sc-fzozJi hhSIgG"
   >
     <div
-      className="sc-AxirZ dCBnyz"
+      class="sc-AxirZ dCBnyz"
     >
       <div
-        className="logo gatsby-image-wrapper"
-        style={
-          Object {
-            "display": "inline-block",
-            "height": 40,
-            "overflow": "hidden",
-            "position": "relative",
-            "width": 40,
-          }
-        }
+        class="logo gatsby-image-wrapper"
+        style="position: relative; overflow: hidden; display: inline-block; width: 40px; height: 40px;"
       >
         <img
           alt=""
-          aria-hidden={true}
+          aria-hidden="true"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAACU0lEQVQ4y22Vz0tVURDH73u+vBFYIYhERItq3x8QEQgWZYsMikDoJ5VRq2zRxnDjRpAgqk3Zs0KJeBUtoq3VIgoKKgrLhH4aRLnQRT/o3T5D35Hxdg98mTnnzHzPnJk59yZZliU2TIJyooG+uV6vV5ET4JfwFgyDjuBXjhyRrGQ6JG3oL7N/4zcYY+0q8gq4J2Ib46y3B///yZAnZfwZ7MGhKckN1heBLvBBtn3zSHEqRzLmo4g0R3IAdIOdYKHWFoCqfPp0u7I7tOm0kUCSymit9h7psOW5wy5of2tcfIXxJydBNoTIR+RwRgVpdRvJkor1DlRsYYscdsugEnK6Rlc6jdgFbqG3eM7QK9K3i2OHLQ6rck3hRD/9rAxXgb3gJmgJ7eK3SMF3cMMmE5COFVS8VWRDmh/DruaEBdW/AyZN+Wm5Caf6NXpFeFQRHrEIQLMqvEJYKfvBTBFFQr/qYiXZx0ewX1c2wrta/2opVludcsLX4L4XRPKQHE6AjWAdOBwi7AT94JvsrLWuWbOb80XwBywJRXljzy+XI7tyzftQVbfRo/k0uJ0oAhsHtdEZ24hC+MvoRr8ufbVsHmjeoXmXn/5M+bBkPwYzoNEjDhE+gdTyOKXcL9PeOPgy92RR1uuEGg5DVoDQ5N7Em5CXdLUpf2rIc3NNnatsjzYux++iPUGbI0vKbxryel4+g952+W/hcRlY9fYxX1rQwKme2qSe5UDYK/wmbgDPRfwDPFTUVX1gZ7X3HmwLZKV5rCJtCFdtB5azpyqYRf0CjKoTKkW/gL+tuhI3CufaNQAAAABJRU5ErkJggg=="
-          style={
-            Object {
-              "height": "100%",
-              "left": 0,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "opacity": 1,
-              "position": "absolute",
-              "top": 0,
-              "transitionDelay": "500ms",
-              "width": "100%",
-            }
-          }
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 1; transition-delay: 500ms;"
         />
         <picture>
           <source
-            srcSet="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x"
+            srcset="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x"
           />
           <img
             alt="logo"
-            height={40}
+            height="40"
             loading="lazy"
-            onLoad={[Function]}
             src="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png"
-            srcSet="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x"
-            style={
-              Object {
-                "height": "100%",
-                "left": 0,
-                "objectFit": "cover",
-                "objectPosition": "center",
-                "opacity": 0,
-                "position": "absolute",
-                "top": 0,
-                "transition": "opacity 500ms",
-                "width": "100%",
-              }
-            }
-            width={40}
+            srcset="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x"
+            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms;"
+            width="40"
           />
         </picture>
-        <noscript
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "<picture><source srcset=\\"/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x\\" /><img loading=\\"lazy\\" width=\\"40\\" height=\\"40\\" srcset=\\"/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x\\" src=\\"/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png\\" alt=\\"logo\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
-            }
-          }
-        />
+        <noscript>
+          &lt;picture&gt;&lt;source srcset="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x" /&gt;&lt;img loading="lazy" width="40" height="40" srcset="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png 1x,/static/b0ddc18a1e874e013ee42035351d5925/183c2/logo.png 1.5x,/static/b0ddc18a1e874e013ee42035351d5925/829e2/logo.png 2x" src="/static/b0ddc18a1e874e013ee42035351d5925/ff4be/logo.png" alt="logo" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+        </noscript>
       </div>
       <div
-        className="sc-AxhCb ehpxdv"
+        class="sc-AxhCb ehpxdv"
       >
         <div
-          className="sc-AxgMl hzwiGK"
+          class="sc-AxgMl hzwiGK"
         >
           Alejandro Ginés
         </div>
         <div
-          className="sc-Axmtr blfvLt"
+          class="sc-Axmtr blfvLt"
         >
           Web Developer
         </div>
       </div>
     </div>
-    <a
-      className="sc-fznWqX jqXnrH"
-      href="about"
+    <div
+      class="sc-fznWqX jqXnrH"
+      id="aboutButtonDesktop"
     >
       <p
-        className="sc-fzqARJ bqKifG"
+        class="sc-fzqARJ bqKifG"
       >
         about us
       </p>
       <div
-        className="sc-fzoyTs buwGoh"
+        class="sc-fzoyTs buwGoh"
       />
-    </a>
+    </div>
   </div>
   <div
-    className="sc-fzpans fWuNxB"
+    class="sc-fzpans fWuNxB"
   >
     <a
-      className="sc-fznyAO eQYrUP"
+      class="sc-fznyAO eQYrUP"
       id="language-switch"
-      onClick={[Function]}
+      style="position: fixed;"
     >
       ES
     </a>
     <div
-      className="sc-fznZeY deXbxg"
+      class="sc-fznZeY deXbxg"
     >
       <h2
-        className="sc-fzokOt dpyQpq"
+        class="sc-fzokOt dpyQpq"
       >
         Welcome to my Site
       </h2>
       <h1
-        className="sc-fzoyAV gDGNOH"
+        class="sc-fzoyAV gDGNOH"
       >
         I am a former translator, a teacher at heart, and a Web Developer since 2016
       </h1>
       <h3
-        className="sc-fzpjYC enOmxh"
+        class="sc-fzpjYC enOmxh"
       >
         I've spent most of my life between Spain, France, the United Kingdom and the United States. I'm currently based in Berlin, where I work as a Frontend Engineer at Zalando SE
       </h3>
       <div
-        className="wrapper"
+        class="wrapper"
       >
         <div
-          className="link_wrapper"
+          class="link_wrapper"
         >
           <a
-            className="cv_button"
+            class="cv_button"
             href="https://alexgines.netlify.app/"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
             target="blank"
           >
             See my CV
           </a>
           <div
-            className="icon"
+            class="icon"
           >
             <svg
               id="Capa_1"
-              style={
-                Object {
-                  "height": 34,
-                  "verticalAlign": "middle",
-                  "width": 34,
-                }
-              }
+              style="width: 34px; height: 34px; vertical-align: middle;"
               version="1.1"
               viewBox="0 0 512 512"
               x="0px"
-              xmlSpace="preserve"
+              xml:space="preserve"
               y="0px"
             >
               <g>
@@ -245,4 +200,9 @@ exports[`HeroBanner matches snapshot 1`] = `
     </div>
   </div>
 </section>
+`;
+
+exports[`HeroBanner updates the DOM when clicking language switxh button 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
