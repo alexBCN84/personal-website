@@ -2,11 +2,11 @@ import React from "react"
 // import Image from "../../common/image";
 // import { Link } from "gatsby"
 
-export function About() {
+export function Projects() {
     return (
-    <div id="about" style={{backgroundColor: '#253237', width: '100vw', height: '100vh'}}>
+    <div id="projects" style={{backgroundColor: '#D4AC0D', width: '100vw', height: '100vh'}}>
         <div>
-            <h1>About me</h1>
+            <h1>Projects</h1>
             {/* <p>Welcome to your new Gatsby site.</p>
             <p>Now go build something great.</p>
             

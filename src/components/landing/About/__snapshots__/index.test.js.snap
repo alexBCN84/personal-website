@@ -7,7 +7,7 @@ exports[`About component renders without crashinf 1`] = `
 >
   <div>
     <h1>
-      Hi people
+      About me
     </h1>
   </div>
 </div>
