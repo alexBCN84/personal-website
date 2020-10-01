@@ -62,7 +62,7 @@ export const HeroBanner = () => {
             {languages.inactive}
           </St.SwitchLanguageButtonMobile>
           <St.TeaserChevronContentMobile id="aboutButtonMobile" onClick={ 
-            () => scrollTo(document.getElementById('intro'), 275, 'top')
+            () => scrollTo('intro')
           }>
             <St.AboutUsText>{about}</St.AboutUsText>
             <St.ScrollDownBtn />
@@ -97,7 +97,7 @@ export const HeroBanner = () => {
           {languages.inactive}
         </St.SwitchLanguageButton>
         <St.TeaserChevronContentMobile id="aboutButtonTablet" onClick={ 
-          () => scrollTo(document.getElementById('intro'), 275, 'top') 
+          () => scrollTo('intro') 
         }>
           <St.AboutUsTextTablet>{about}</St.AboutUsTextTablet>
           <St.ScrollDownBtn />
@@ -123,7 +123,7 @@ export const HeroBanner = () => {
           </St.LogoTextWrapper>
         </St.LogoWrapper>
         <St.TeaserChevronContent id="aboutButtonDesktop" onClick={ 
-          () => scrollTo(document.getElementById('about'), 275, 'top') 
+          () => scrollTo('about')
         }>
           <St.AboutUsText>{about}</St.AboutUsText>
           <St.ScrollDownBtn />

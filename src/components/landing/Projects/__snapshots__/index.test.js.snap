@@ -2,7 +2,7 @@
 
 exports[`Projects component renders without crashing 1`] = `
 <div
-  id="about"
+  id="projects"
   style="background-color: rgb(212, 172, 13); width: 100vw; height: 100vh;"
 >
   <div>
