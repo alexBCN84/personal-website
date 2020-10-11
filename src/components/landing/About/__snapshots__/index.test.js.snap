@@ -3,7 +3,7 @@
 exports[`About component renders without crashinf 1`] = `
 <div
   id="about"
-  style="background-color: rgb(37, 50, 55); width: 100vw; height: 100vh;"
+  style="background-color: rgb(37, 50, 55); width: 100vw; height: 100vh; padding-top: 60px;"
 >
   <div>
     <h1>

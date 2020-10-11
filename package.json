@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "mudejar.es",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "página web dedicada al arte mudéjar en España",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alejandro Gines <alejandro.ginesmartinez@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.22.15",
@@ -25,6 +25,7 @@
     "styled-components": "^5.1.1",
     "typeface-fira-code": "^1.1.4",
     "typeface-montserrat": "^0.0.75",
+    "typeface-raleway": "^0.0.75",
     "typeface-share-tech-mono": "^0.0.72"
   },
   "devDependencies": {

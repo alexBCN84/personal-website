@@ -33,6 +33,12 @@ export function useData() {
                   cvCTA {
                     text
                     href
+                  },
+                  navigation {
+                    tabs {
+                      text
+                      link
+                    }
                   }
                 }
                 EN {
@@ -43,6 +49,12 @@ export function useData() {
                   cvCTA {
                     text
                     href
+                  },
+                  navigation {
+                    tabs {
+                      text
+                      link
+                    }
                   }
                 }
               }

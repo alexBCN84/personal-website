@@ -11,7 +11,7 @@ import PropTypes from "prop-types"
 import { Global } from './styles';
 // import Header from "../header"
 
-const Layout = ({ children }) => {
+const Layout = React.forwardRef(({ children }, ref) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       <Global />
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
 
-        <main>{children}</main>
+        <main ref={ref}>{children}</main>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
@@ -36,10 +36,10 @@ const Layout = ({ children }) => {
       {/* </div> */}
     </>
   )
-}
+})
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

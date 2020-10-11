@@ -21,11 +21,11 @@ export function reducer(state, action) {
 const DataProvider = ({ children, data }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const logo = data.file.childImageSharp.fixed
-    const { headline, kicker, description, cvCTA, aboutChevronText: about } = data.allDataJson.edges[0].node[
+    const { headline, kicker, description, cvCTA, aboutChevronText: about, navigation } = data.allDataJson.edges[0].node[
       state.languages.active
     ];
-    const heroBannerData = {logo, headline, kicker, description, cvCTA, about}
-  return <Provider value={{heroBannerData, dispatch, state}}>{children}</Provider>
+    const homeData = {logo, headline, kicker, description, cvCTA, about}
+  return <Provider value={{homeData, dispatch, state, navigation}}>{children}</Provider>
 }
 
 DataProvider.propTypes = {
@@ -52,6 +52,12 @@ DataProvider.propTypes = {
           cvCTA: shape({
             text: PropTypes.string,
             href: PropTypes.string
+          }),
+          navigation: shape({
+            tabs: arrayOf(shape({
+              text: PropTypes.string,
+              link: PropTypes.string
+            }))
           })
         }),
         EN: shape({
@@ -62,6 +68,12 @@ DataProvider.propTypes = {
           cvCTA: shape({
             text: PropTypes.string,
             href: PropTypes.string
+          }),
+          navigation: shape({
+            tabs: arrayOf(shape({
+              text: PropTypes.string,
+              link: PropTypes.string
+            }))
           })
         })
       }))

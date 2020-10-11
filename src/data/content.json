@@ -1,23 +1,87 @@
 
 {
-    "ES": {
-        "kicker": "bienvenid@ a mi web!",
-        "headline": "Soy traductor de formación, profesor de vocación y desde 2016 desarrollador web",
-        "description": "He pasado gran parte de mi vida entre España, Francia, Reino Unido y Estados Unidos. Actualmente vivo en Berlín, donde trabajo como Ingeniero Front-End en Zalando SE",
-        "aboutChevronText": "conócenos",
-        "cvCTA": {
-            "text": "Ver CV",
-            "href": "https://alexgines.netlify.app/"
-        }
+  "ES": {
+    "kicker": "bienvenid@ a mi web!",
+    "headline": "Soy traductor de formación, profesor de vocación y desde 2016 desarrollador web",
+    "description": "He pasado gran parte de mi vida entre España, Francia, Reino Unido y Estados Unidos. Actualmente vivo en Berlín, donde trabajo como Ingeniero Front-End en Zalando SE",
+    "aboutChevronText": "conócenos",
+    "cvCTA": {
+      "text": "Ver CV",
+      "href": "https://alexgines.netlify.app/"
     },
-    "EN": {
-        "kicker": "Welcome to my Site",
-        "headline": "I am a former translator, a teacher at heart, and a Web Developer since 2016",
-        "description": "I've spent most of my life between Spain, France, the United Kingdom and the United States. I'm currently based in Berlin, where I work as a Frontend Engineer at Zalando SE",
-        "aboutChevronText": "about us",
-        "cvCTA": {
-            "text": "See my CV",
-            "href": "https://alexgines.netlify.app/"
+    "navigation": {
+      "tabs": [
+        {
+          "text": "inicio", 
+          "link": "home"
+        },
+        {
+          "text": "perfil", 
+          "link": "about"
+        },
+        {
+          "text": "blog", 
+          "link": "blog"
+        },
+        {
+          "text": "proyectos", 
+          "link": "projects"
+        },
+        {
+          "text": "recursos", 
+          "link": "resources"
+        },
+        {
+          "text": "cv", 
+          "link": "https://alexgines.netlify.app/"
+        },
+        {
+          "text": "contacto", 
+          "link": "contact"
         }
+      ]
     }
+  },
+  "EN": {
+    "kicker": "Welcome to my Site",
+    "headline": "I am a former translator, a teacher at heart, and a Web Developer since 2016",
+    "description": "I've spent most of my life between Spain, France, the United Kingdom and the United States. I'm currently based in Berlin, where I work as a Frontend Engineer at Zalando SE",
+    "aboutChevronText": "about us",
+    "cvCTA": {
+      "text": "See my CV",
+      "href": "https://alexgines.netlify.app/"
+    },
+    "navigation": {
+      "tabs": [
+        {
+          "text": "home", 
+          "link": "home"
+        },
+        {
+          "text": "about", 
+          "link": "about"
+        },
+        {
+          "text": "blog", 
+          "link": "blog"
+        },
+        {
+          "text": "projects", 
+          "link": "projects"
+        },
+        {
+          "text": "resources", 
+          "link": "resources"
+        },
+        {
+          "text": "cv", 
+          "link": "https://alexgines.netlify.app/"
+        },
+        {
+          "text": "contact", 
+          "link": "contact"
+        }
+      ]
+    }
+  }
 }

@@ -4,7 +4,7 @@ import React from "react"
 
 export function Projects() {
     return (
-    <div id="projects" style={{backgroundColor: '#D4AC0D', width: '100vw', height: '100vh'}}>
+    <div id="projects" style={{backgroundColor: '#D4AC0D', width: '100vw', height: '100vh', paddingTop: 60}}>
         <div>
             <h1>Projects</h1>
             {/* <p>Welcome to your new Gatsby site.</p>
